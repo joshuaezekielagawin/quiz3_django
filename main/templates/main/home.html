@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Records</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f0f2f5;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .empty {
+            text-align: center;
+            color: #777;
+            padding: 30px;
+        }
+
+        .admin-link {
+            display: block;
+            width: fit-content;
+            margin: 25px auto 0;
+            padding: 10px 18px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .admin-link:hover {
+            background-color: #555;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                padding: 20px;
+                overflow-x: auto;
+            }
+
+            table {
+                min-width: 700px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Records</h1>
+
+    <p class="subtitle">
+        Student information managed using Django
+    </p>
+
+    {% if students %}
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Full Name</th>
+                    <th>Course / Program</th>
+                    <th>Year Level</th>
+                    <th>Section</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for student in students %}
+
+                    <tr>
+                        <td>{{ student.student_id }}</td>
+                        <td>{{ student.full_name }}</td>
+                        <td>{{ student.course }}</td>
+                        <td>{{ student.year_level }}</td>
+                        <td>{{ student.section }}</td>
+                    </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+    {% else %}
+
+        <p class="empty">
+            No student records have been added yet.
+        </p>
+
+    {% endif %}
+
+</div>
+
+<footer>
+    <div class="container">
+        <h3>Joshua Ezekiel A. Agawin</h3>
+        <h3>BSIT-3C</h3>
+    </div>
+
+</footer>
+
+</body>
+</html>
