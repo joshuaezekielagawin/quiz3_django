@@ -27,7 +27,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'joshuaezekielagawin.pythonanywhere.com',
-    ]
+]
 
 # Application definition
 
